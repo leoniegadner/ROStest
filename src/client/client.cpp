@@ -6,14 +6,14 @@
 int main(int argc, char **argv)
 {
     ros::init(argc, argv, "service_client");
-    if (argc != 3)
-    {
-        ROS_INFO("usage: add X");
-        return 1;
-    }
+//    if (argc != 2)
+//    {
+//        ROS_INFO("usage: add X");
+//        return 1;
+//    }
 
     ros::NodeHandle n;
-    ros::ServiceClient client = n.serviceClient<test1::add>("add_service_server");
+    ros::ServiceClient client = n.serviceClient<test1::add>("add_service");
     test1::add srv;
     srv.request.X = atoll(argv[1]);
     if (client.call(srv))
@@ -23,7 +23,7 @@ int main(int argc, char **argv)
     }
     else
     {
-        ROS_ERROR("Failed to call service add_two_ints");
+        ROS_ERROR("Failed to call service ");
         return 1;
     }
 

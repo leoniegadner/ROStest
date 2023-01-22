@@ -11,7 +11,7 @@ int main(int argc, char **argv)
 {
     ros::init(argc, argv, "subscriber");
     ros::NodeHandle n;
-    ros::Subscriber sub = n.subscribe("publisher", 1000, chatterCallback);
+    ros::Subscriber sub = n.subscribe("topic", 1000, chatterCallback);
     ros::spin();
 
     return 0;
